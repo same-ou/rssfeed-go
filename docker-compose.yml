@@ -1,0 +1,15 @@
+services:
+  database:
+    image: postgres:14.2-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ussa
+      POSTGRES_PASSWORD: ussago
+      POSTGRES_DB: go_blog
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
